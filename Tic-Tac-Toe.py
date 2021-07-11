@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[13]:
-
-
 #helper function to print the board
 def print_board(rows, board):
     for x in range(rows):
@@ -106,64 +100,37 @@ def tictactoe():
   
 
     while True:
-
+	#prints the board at the beginning of each loop and takes input
         print_board(rows, board)
         inputrow, inputcolumn = take_input(player)
         
+	#reads technically sanitized inputs or throws an exception
         try:
             inputrow, inputcolumn = validate_position(board, inputrow, inputcolumn)
         except (ValueError, IndexError):
             print('Input invalid. Only 0, 1, 2 are permitted.')
             continue
         
+	#proceeds if cell is empty or throws an exception
         try:
             validate_empty_cell(board, inputrow, inputcolumn)
         except ValueError as exception:
             print(str(exception))
             continue
         
+	#records a move
         board = record_input(board, inputrow, inputcolumn, player)
-#        nextplayer = switch_players(player)
         
+	#checks for win/draw and breaks loop if true
         if check_win_conditions(winconditions, player, rows, board) or check_draw(rows, board):
             break
-
+	
+	#we switch players at the very end to properly print and check earlier
         player = switch_players(player)
 
 
-# In[14]:
-
 
 tictactoe()
-
-
-# In[4]:
-
-
-def a():
-    b = 1
-    return b
-
-def c(num):
-    return num
-
-print(c(a()))
-
-
-# In[8]:
-
-
-def a(col):
-     col = []
-
-col_m = [1]
-
-a(col_m)
-print(col_m)
-
-
-# In[ ]:
-
 
 
 
