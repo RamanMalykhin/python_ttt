@@ -1,7 +1,7 @@
 #helper function to print the board
 def print_board(rows, board):
     for x in range(rows):
-        print ("|".join(board[x])) 
+        print ("|".join(board[x]))
 
 #taking an input        
 def take_input(player):
@@ -15,16 +15,10 @@ def take_input(player):
 
 #"technical" input validation
 def validate_position(board, rawinputrow, rawinputcolumn):
-#        try:
-        currentrow = int(rawinputrow)
-        currentcolumn = int(rawinputcolumn)
-        testvalue = board[currentrow][currentcolumn]
-        return currentrow, currentcolumn
-#        except (ValueError, IndexError):
-#            print('Input invalid. Only 0, 1, 2 are permitted.')
-            
-
-
+	currentrow = int(rawinputrow)
+	currentcolumn = int(rawinputcolumn)
+	testvalue = board[currentrow][currentcolumn]
+	return currentrow, currentcolumn
 
 #rule-wise input validation            
 def validate_empty_cell(board, currentrow, currentcolumn):
@@ -129,8 +123,5 @@ def tictactoe():
         player = switch_players(player)
 
 
-
-tictactoe()
-
-
-
+if __name__ == "__main__":
+	tictactoe()
